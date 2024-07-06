@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE CRAFTERS - Plumby</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">CODE CRAFTERS</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero">
+            <h1>Welcome to CODE CRAFTERS</h1>
+            <p>Meet Plumby, your chatbot for water conservation
+               Click on blue chat Icon on bottom-right corner to open chat.
+            </p>
+         
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About CODE CRAFTERS</h2>
+        <p>We are a team dedicated to developing innovative solutions to help conserve water. Plumby is our latest chatbot designed to provide valuable insights and solutions for water conservation.</p>
+    </section>
+
+    <section id="features">
+        <h2>Features of Plumby</h2>
+        <ul>
+            <li>Real-time water usage tracking</li>
+            <li>Personalized conservation tips</li>
+            <li>Community water-saving challenges</li>
+            <li>Educational resources</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <div id="chatbox" class="chatbox">
+        <div class="chatbox-header">
+            <h3>Plumby Chat</h3>
+            <button onclick="closeChat()">X</button>
+        </div>
+        <div class="chatbox-body">
+            <div class="messages">
+                <!-- Messages will appear here -->
+            </div>
+            <input type="text" id="chat-input" placeholder="Type a message..." onkeydown="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CODE CRAFTERS. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "d924ec57-0426-4ece-854c-0fe955977347", // The ID of this integration.
+          region: "us-south", // The region your integration is hosted in.
+          serviceInstanceID: "c10b4d8c-6ddd-4f61-902b-eda78303f9db", // The ID of your service instance.
+          onLoad: async (instance) => { await instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.head.appendChild(t);
+        });
+      </script>
+</body>
+</html>
